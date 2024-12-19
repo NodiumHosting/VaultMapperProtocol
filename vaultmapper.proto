@@ -23,7 +23,7 @@ message Color {
 message VaultCell {
 	sint32 x = 1;
 	sint32 z = 2;
-	CellType type = 3;
+	CellType cellType = 3;
 	RoomType roomType = 4;
 	RoomName roomName = 5;
 	bool explored = 6;
