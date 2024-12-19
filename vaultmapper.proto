@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+message Vault {
+	repeated VaultCell cells = 1;
+	repeated VaultPlayer players = 2;
+}
+
+message VaultPlayer {
+	sint32 x = 1;
+	sint32 z = 2;
+	string uuid = 3;
+	Color color = 4;
+	float yaw = 5;
+}
+
+message Color {
+	uint32 r = 1;
+	uint32 g = 2;
+	uint32 b = 3;
+}
+
+message VaultCell {
+	sint32 x = 1;
+	sint32 z = 2;
+	CellType type = 3;
+	RoomType roomType = 4;
+	RoomName roomName = 5;
+	bool explored = 6;
+	bool inscribed = 7;
+	bool marked = 8;
+}
+
+enum CellType {
+	CELLTYPE_UNKNOWN = 0;
+	CELLTYPE_ROOM = 1;
+	CELLTYPE_TUNNEL_X = 2;
+	CELLTYPE_TUNNEL_Z = 3;
+}
+
+enum RoomType {
+	ROOMTYPE_UNKNOWN = 0;
+	ROOMTYPE_START = 1;
+	ROOMTYPE_BASIC = 2;
+	ROOMTYPE_ORE = 3;
+	ROOMTYPE_CHALLENGE = 4;
+	ROOMTYPE_OMEGA = 5;
+}
+
+enum RoomName {
+	ROOMNAME_UNKNOWN = 0;
+	ROOMNAME_BLACKSMITH = 1;
+	ROOMNAME_COVE = 2;
+	ROOMNAME_CRYSTAL_CAVES = 3;
+	ROOMNAME_DIG_SITE = 4;
+	ROOMNAME_DRAGON = 5;
+	ROOMNAME_FACTORY = 6;
+	ROOMNAME_LIBRARY = 7;
+	ROOMNAME_MINE = 8;
+	ROOMNAME_MUSH_ROOM = 9;
+	ROOMNAME_PAINTING = 10;
+	ROOMNAME_VENDOR = 11;
+	ROOMNAME_VILLAGE = 12;
+	ROOMNAME_WILD_WEST = 13;
+	ROOMNAME_X_MARK = 14;
+	ROOMNAME_CUBE = 15;
+	ROOMNAME_LAB = 16;
+	ROOMNAME_RAID = 17;
+}
