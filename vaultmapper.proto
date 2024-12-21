@@ -31,9 +31,20 @@ message VaultCell {
 	bool marked = 8;
 }
 
-message PlayerLeave {
+message PlayerUUID {
 	string uuid = 1;
 }
+
+// returns empty because we don't need any responses
+service VMService {
+	rpc NewVaultCell(VaultCell) returns (Empty); 
+	rpc Movement(VaultPlayer) returns (Empty);
+	rpc VaultSync(Vault) returns (Empty);
+	rpc PlayerLeave(PlayerUUID) returns (Empty);
+}
+
+message Empty {}
+
 
 enum CellType {
 	CELLTYPE_UNKNOWN = 0;
