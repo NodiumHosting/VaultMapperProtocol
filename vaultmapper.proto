@@ -31,6 +31,10 @@ message VaultCell {
 	bool marked = 8;
 }
 
+message PlayerLeave {
+	string uuid = 1;
+}
+
 enum CellType {
 	CELLTYPE_UNKNOWN = 0;
 	CELLTYPE_ROOM = 1;
