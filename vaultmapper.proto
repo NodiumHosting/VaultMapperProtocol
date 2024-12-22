@@ -1,6 +1,23 @@
 syntax = "proto3";
 option go_package = "/proto";
 
+message Message {
+	MessageType type = 1;
+	oneof content {
+		Vault vault = 2;
+		VaultPlayer vaultPlayer = 3;
+		VaultCell vaultCell = 4;
+		PlayerDisconnect playerDisconnect = 5;
+	}
+}
+
+enum MessageType {
+	VAULT = 0;
+	VAULT_PLAYER = 1;
+	VAULT_CELL = 2;
+	PLAYER_DISCONNECT = 3;
+}
+
 message Vault {
 	repeated VaultCell cells = 1;
 	repeated VaultPlayer players = 2;
@@ -31,20 +48,9 @@ message VaultCell {
 	bool marked = 8;
 }
 
-message PlayerUUID {
+message PlayerDisconnect {
 	string uuid = 1;
 }
-
-// returns empty because we don't need any responses
-service VMService {
-	rpc NewVaultCell(VaultCell) returns (Empty); 
-	rpc Movement(VaultPlayer) returns (Empty);
-	rpc VaultSync(Vault) returns (Empty);
-	rpc PlayerLeave(PlayerUUID) returns (Empty);
-}
-
-message Empty {}
-
 
 enum CellType {
 	CELLTYPE_UNKNOWN = 0;
