@@ -7,12 +7,13 @@ option java_outer_classname = "VaultMapperProto";
 
 message Message {
 	MessageType type = 1;
-	oneof content {
-		Vault vault = 2;
-		VaultPlayer vaultPlayer = 3;
-		VaultCell vaultCell = 4;
-		PlayerDisconnect playerDisconnect = 5;
-	}
+
+	// ditched oneof because protoc refused to generate it properly
+	Vault vault = 2;
+	VaultPlayer vaultPlayer = 3;
+	VaultCell vaultCell = 4;
+	PlayerDisconnect playerDisconnect = 5;
+	
 }
 
 enum MessageType {
