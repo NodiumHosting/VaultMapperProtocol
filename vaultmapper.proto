@@ -13,7 +13,7 @@ message Message {
 	VaultPlayer vaultPlayer = 3;
 	VaultCell vaultCell = 4;
 	PlayerDisconnect playerDisconnect = 5;
-	
+	Toast toast = 6;	
 }
 
 enum MessageType {
@@ -21,6 +21,11 @@ enum MessageType {
 	VAULT_PLAYER = 1;
 	VAULT_CELL = 2;
 	PLAYER_DISCONNECT = 3;
+	TOAST = 4;
+}
+
+message Toast {
+	string message = 1;
 }
 
 message Vault {
