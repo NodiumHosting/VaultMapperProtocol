@@ -13,7 +13,9 @@ message Message {
 	VaultPlayer vaultPlayer = 3;
 	VaultCell vaultCell = 4;
 	PlayerDisconnect playerDisconnect = 5;
-	Toast toast = 6;	
+	Toast toast = 6;
+	ViewerCodeRequest viewerCodeRequest = 7;
+	ViewerCode viewerCode = 8;
 }
 
 enum MessageType {
@@ -26,6 +28,12 @@ enum MessageType {
 
 message Toast {
 	string message = 1;
+}
+
+message ViewerCodeRequest {}
+
+message ViewerCode {
+	string code = 1;
 }
 
 message Vault {
