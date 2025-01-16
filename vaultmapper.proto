@@ -24,6 +24,8 @@ enum MessageType {
 	VAULT_CELL = 2;
 	PLAYER_DISCONNECT = 3;
 	TOAST = 4;
+	VIEWER_CODE_REQUEST = 5;
+	VIEWER_CODE = 6;
 }
 
 message Toast {
